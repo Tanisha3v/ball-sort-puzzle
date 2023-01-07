@@ -1,21 +1,13 @@
 ;; The first three lines of this file were inserted by DrRacket. They record metadata
 ;; about the language level of this file in a form that our tools can easily process.
 #reader(lib "htdp-intermediate-lambda-reader.ss" "lang")((modname tubes-bonus) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor mixed-fraction #f #t none #f () #t)))
-;; ****************************************************************************
-;;   TANISHA SINGH DHAMI
-;;        21033743
-;;  CS135 Assignmnet A10 BONUS
+
 ;; ****************************************************************************
 
 (require "lib-tubes.rkt")
 
 ;; A Game is (make-game Nat Nat (listof (listof Sym)))
 (define-struct game (tubesize maxcolours tubes))
-
-
-;; ****************************************************************************
-
-;; PART A:
 
 ;; (check-colour? size num los) produces true if each symbol in the list [los]
 ;; appears exactly [size] times and if there are at most [num] different symbols
@@ -42,8 +34,6 @@
 
 ;; ****************************************************************************
 
-;; PART B:
-
 ;; (valid-game? gm) produces true if [gm] is a valid game, and false otherwise.
 ;; A Game is valid if:
 ; - All tubes have at most tubesize symbols in them
@@ -57,8 +47,6 @@
                       (foldl append empty (game-tubes gm)))))
 
 ;; ****************************************************************************
-
-;; PART C:
 
 ;; (remove-completed gm) produces a Game similar to [gm] but has any completed
 ;; tubes removed. Where a "completed tube" is full of balls of the same colour.
@@ -83,8 +71,6 @@
 
 ;; ****************************************************************************
 
-;; PART D:
-
 ;; (finished-game? gm) produces true if [gm] is a finished Game and false otherwise.
 ;; A Game is finished if all tubes are either empty or full with balls of the same colour
 ;; Or if there are no tubes
@@ -95,8 +81,6 @@
       (andmap (lambda (x) (empty? x)) (game-tubes (remove-completed gm)))))
 
 ;; ****************************************************************************
-
-;; PART E:
 
 ;; (num-blocks llos) produces the number of "blocks" contained in [llos]
 ;;  A block is a consecutive sequence of identical symbols within one list
@@ -113,8 +97,6 @@
 
 
 ;; ****************************************************************************
-
-;; PART F:
 
 ;; (equiv-game? gm1 gm2) produces true if [gm1] and [gm2] are equivalent,
 ;; and false otherwise.
@@ -141,8 +123,6 @@
 
 ;; ****************************************************************************
 
-;; PART G:
-
 ;; (all-equiv? log1 log2) produces true if every game in [log1] has one equivalent
 ;; game in [log2], and every game in log2 has one equivalent game in log1,
 ;; and false otherwise.
@@ -161,8 +141,6 @@
          (= (length log1) (length log2)))))
 
 ;; ****************************************************************************
-
-;; PART H:
 
 ;; (next-games gm) produces a list of Games that can happen by moving one ball from gm
 ;; next-games: Game -> (listof Game)
